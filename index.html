@@ -21,15 +21,26 @@
 <body>
 
 <div class="container p-4">
-	<div class="row">
+	<div class="row my-4">
 		<div class="col-md-12 text-center">
 			<h1>Giph It Up</h1>
 		</div>
 	</div>
-	<div class="row d-hidden">
-		<div class="col-md-12">
-			<!-- Giphy images here... -->
+	<div class="row">
+		<div id="topic-add" class="col-lg-4 order-1 order-lg-2">
+			<div class="input-group mb-3">
+				<input type="text" class="form-control" placeholder="Topic to add..." aria-label="Recipient's username" aria-describedby="button-addon2">
+				<div class="input-group-append">
+					<button class="btn btn-outline-info" type="button" id="add-topic">Add Topic</button>
+				</div>
+			</div>
 		</div>
+		<div id="topic-buttons" class="col-lg-8 order-2 order-lg-1">
+			<!-- Giphy topic buttons here... -->
+		</div>
+	</div>
+	<div id="giphy-images" class="row">
+		<!-- Giphy images here... -->
 	</div>
 </div>
 
