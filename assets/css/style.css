@@ -10,8 +10,24 @@ body {
     justify-content: space-around;
 }
 
+.giphy {
+    cursor: pointer;
+}
+
 @media screen and (min-width: 576px) {
     #giphy-images .img-column {
         max-width: 220px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #giphy-images .img-column {
+        max-width: 240px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    #giphy-images .img-column {
+        max-width: 280px;
     }
 }

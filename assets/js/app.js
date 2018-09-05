@@ -7,6 +7,7 @@
 
 // Array of topics -->
 const topics = [
+    "cookies",
     "steamed rice",
     "steak tacos",
     "chicken sandwich",
@@ -14,7 +15,7 @@ const topics = [
     "butternut squash",
     "chili fries",
     "buffalo cauliflower",
-    "turmeric turkey"
+    "turkey"
 ];
 
 // DOM Selections
@@ -173,6 +174,24 @@ const giphyPauseToggle = function(e) {
     }
 };
 
+// Giphy animated -->
+const giphyAnimate = function(e) {
+    console.log("animated...");
+    // Change image src to animated url -->
+    $(this).attr("src", $(this).attr("data-src-reg"));
+    // Change data-still attribute to false -->
+    $(this).attr("data-still", "false");
+};
+
+// Giphy freeze -->
+const giphyFreeze = function(e) {
+    console.log("frozen...");
+    // Change image src to still image url -->
+    $(this).attr("src", $(this).attr("data-src-still"));
+    // Change data-still attribute to true -->
+    $(this).attr("data-still", "true");
+};
+
 // Main Process
 // -------------------------------------------------->
 
@@ -199,5 +218,8 @@ topicButtonsColumn.on("click", ".btn", function(e) {
     getCreateGiphyImages(topic);
 });
 
-// When giphy image is clicked -->
-giphyImagesDiv.on("click", ".giphy", giphyPauseToggle);
+// When giphy image is moused over -->
+giphyImagesDiv.on("mouseover", ".giphy", giphyAnimate);
+
+// When giphy is moused out -->
+giphyImagesDiv.on("mouseout", ".giphy", giphyFreeze);
