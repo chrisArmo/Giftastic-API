@@ -3,3 +3,15 @@
 body {
     font-family: "Maven Pro", sans-serif;
 }
+
+/* Giphy Images */
+
+#giphy-images .row {
+    justify-content: space-around;
+}
+
+@media screen and (min-width: 576px) {
+    #giphy-images .img-column {
+        max-width: 220px;
+    }
+}
