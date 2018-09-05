@@ -41,7 +41,9 @@ const title = str => str.split(" ").map(capitalize).join(" ");
 // Create single topic button -->
 const createSingleTopicButton = topic => (
     // Add data-topic, text, and bootstrap button classes -->
-    $("<button>").attr("data-topic", topic).text(topic).addClass("btn btn-info m-1")
+    $("<button>").attr("data-topic", topic).html(`
+        <i class="far fa-hand-point-down"></i> ${topic}
+    `).addClass("btn btn-info m-1")
 );
 
 // Create topic buttons -->
@@ -104,7 +106,7 @@ const createSingleGiphyImage = giphy => {
                     <p class="card-text"><strong>Rating:</strong> ${giphy.rating.toUpperCase()}</p>
                 </div>
                 <img 
-                    class="card-img-bottom img-fluid" 
+                    class="card-img-bottom img-fluid giphy" 
                     src="${giphy.images.fixed_height_still.url}" 
                     alt="${giphy.title}"
                     data-src-still="${giphy.images.fixed_height_still.url}"
@@ -154,6 +156,23 @@ const getCreateGiphyImages = search => {
     });
 };
 
+// Toggle giphy pause & un-pause -->
+const giphyPauseToggle = function(e) {
+    // When data-still attribute is true -->
+    if ($(this).attr("data-still") === "true") {
+        // Change image src to animated url -->
+        $(this).attr("src", $(this).attr("data-src-reg"));
+        // Change data-still attribute to false -->
+        $(this).attr("data-still", "false");
+    // When data-still attribute is false -->
+    } else {
+        // Change image src to still image url -->
+        $(this).attr("src", $(this).attr("data-src-still"));
+        // Change data-still attribute to true -->
+        $(this).attr("data-still", "true");
+    }
+};
+
 // Main Process
 // -------------------------------------------------->
 
@@ -179,3 +198,6 @@ topicButtonsColumn.on("click", ".btn", function(e) {
     // Fetch + create giphy images with search topic -->
     getCreateGiphyImages(topic);
 });
+
+// When giphy image is clicked -->
+giphyImagesDiv.on("click", ".giphy", giphyPauseToggle);
