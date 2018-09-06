@@ -143,7 +143,7 @@ const createGiphyImages = (data, heading) => {
 // Get giphy images from api -->
 const getCreateGiphyImages = search => {
     // Use search in url -->
-    const url = `http://api.giphy.com/v1/gifs/search?q=${search}&limit=10&api_key=JZkZKUtiKjvpufEfUsCKEypFx0TtbRAo`;
+    const url = `https://api.giphy.com/v1/gifs/search?q=${search}&limit=10&api_key=JZkZKUtiKjvpufEfUsCKEypFx0TtbRAo`;
     // Make ajax request with url -->
     $.ajax({
         url,
